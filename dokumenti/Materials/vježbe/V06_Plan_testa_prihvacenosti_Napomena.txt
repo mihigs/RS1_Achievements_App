@@ -1,0 +1,4 @@
+Napomena za ak.godinu 2018/19
+Dokument V06_Plan_testa_prihvacenosti.dot ne trebate koristiti za seminarski rad. Ove godine će se koristiti Unit testovi.
+
+Ovaj dokument službi samo kao primjer izrade test plana prihvaćenosti u wordu.
