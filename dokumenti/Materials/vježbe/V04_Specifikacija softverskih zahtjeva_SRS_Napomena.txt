@@ -1,4 +1,0 @@
-Napomena za ak.godinu 2018/19
-Dokument V04_Specifikacija softverskih zahtjeva_SRS.dot ne trebate koristiti za seminarski rad, jer specifikaciju zahtjeva treba raditi u Azure DevOps
-
-Ovaj dokument službi samo kao primjer specifikacije softverskih zahtjeva u wordu.

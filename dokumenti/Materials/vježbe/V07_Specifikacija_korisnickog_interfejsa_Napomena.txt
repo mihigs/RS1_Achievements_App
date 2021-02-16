@@ -1,4 +1,0 @@
-Napomena za ak.godinu 2018/19
-Dokument V07_Specifikacija_korisnickog_interfejsa.dot ne trebate koristiti za seminarski rad. Ove godine mockupe treba postaviti na Azure DevOps.
-
-Ovaj dokument službi samo kao primjer izrade specifikacije korisničkog interfejsa u wordu.
