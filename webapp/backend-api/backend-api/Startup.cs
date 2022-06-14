@@ -7,6 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.EntityFrameworkCore;
+using backend_api.Data;
 
 namespace backend_api
 {
@@ -22,7 +27,15 @@ namespace backend_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
+
+
+            services.AddControllers();
+
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,22 +44,45 @@ namespace backend_api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                //app.UseDatabaseErrorPage();
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
             }
+
+
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
-            app.UseRouting();
+            app.UseHttpsRedirection();
+            app.UseSwagger();
 
-            app.UseAuthorization();
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
+            app.UseCors(
+               options => options
+               .SetIsOriginAllowed(x => _ = true)
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               .AllowCredentials()
+           ); //This needs to set everything allowed
+
+
+            app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller}/{action=Index}/{id?}");
             });
         }
     }
