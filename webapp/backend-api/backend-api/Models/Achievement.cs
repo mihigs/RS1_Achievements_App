@@ -5,9 +5,15 @@ using System.Threading.Tasks;
 
 namespace backend_api.Models
 {
-    public class Achievement
+    public class Achievement : BaseEntity
     {
-        public long Id { get; set; }
+        //TODO: add image
         public string Name { get; set; }
+        public string Description { get; set; }
+        public long? EventId { get; set; }
+        public Event Event { get; set; }
+        public long? TeamId { get; set; }
+        public Team Team { get; set; }
+
     }
 }
