@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using NLog;
 using NLog.Web;
 using backend_api.Data;
+using System.Diagnostics;
 
 namespace backend_api
 {
@@ -20,7 +21,12 @@ namespace backend_api
     {
         public static async Task Main(string[] args)
         {
-            var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
+            //var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
+            var nlogConfig = new NLog.Config.LoggingConfiguration();
+            var nlogFileTarget = new NLog.Targets.FileTarget("logfile") { FileName = "file.txt" };
+            var nlogConsoleTarget = new NLog.Targets.ConsoleTarget("logconsole");
+            nlogConfig.AddRuleForAllLevels(nlogConsoleTarget);
+            var logger = NLog.Web.NLogBuilder.ConfigureNLog(nlogConfig).GetCurrentClassLogger();
             var host = CreateHostBuilder(args).Build();
 
             using (var scope = host.Services.CreateScope())
@@ -29,6 +35,7 @@ namespace backend_api
                 try
                 {
                     logger.Debug("Init main...");
+                    Debug.WriteLine("Init main");
 
                     var userManager = services.GetRequiredService<UserManager<User>>();
                     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
@@ -60,42 +67,8 @@ namespace backend_api
                 {
                     logging.ClearProviders();
                     logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+                    logging.AddConsole();
                 })
                 .UseNLog();  // NLog: Setup NLog for Dependency injection
     }
 }
-
-
-
-
-
-
-
-
-
-//using Microsoft.AspNetCore.Hosting;
-//using Microsoft.Extensions.Configuration;
-//using Microsoft.Extensions.Hosting;
-//using Microsoft.Extensions.Logging;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Threading.Tasks;
-
-//namespace backend_api
-//{
-//    public class Program
-//    {
-//        public static void Main(string[] args)
-//        {
-//            CreateHostBuilder(args).Build().Run();
-//        }
-
-//        public static IHostBuilder CreateHostBuilder(string[] args) =>
-//            Host.CreateDefaultBuilder(args)
-//                .ConfigureWebHostDefaults(webBuilder =>
-//                {
-//                    webBuilder.UseStartup<Startup>();
-//                });
-//    }
-//}

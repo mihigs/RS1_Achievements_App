@@ -1,7 +1,6 @@
 ﻿using backend_api.Data.Constants;
 using backend_api.Models;
 using Microsoft.AspNetCore.Identity;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;

@@ -14,6 +14,7 @@ namespace backend_api.Models
         public List<AchievementsUser> Achievements { get; set; }
         public DateTimeOffset Created { get; set; } = DateTimeOffset.Now;
         public DateTimeOffset Modified { get; set; } = DateTimeOffset.Now;
+        public List<RefreshToken> RefreshTokens { get; set; }
 
     }
 }
