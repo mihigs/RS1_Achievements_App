@@ -1,4 +1,4 @@
-# frontend-vue
+# achievements-app
 
 ## Project setup
 ```
