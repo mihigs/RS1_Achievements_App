@@ -21,12 +21,14 @@ namespace backend_api
     {
         public static async Task Main(string[] args)
         {
-            //var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
+            //Configure logger
             var nlogConfig = new NLog.Config.LoggingConfiguration();
             var nlogFileTarget = new NLog.Targets.FileTarget("logfile") { FileName = "file.txt" };
             var nlogConsoleTarget = new NLog.Targets.ConsoleTarget("logconsole");
             nlogConfig.AddRuleForAllLevels(nlogConsoleTarget);
-            var logger = NLog.Web.NLogBuilder.ConfigureNLog(nlogConfig).GetCurrentClassLogger();
+            //var logger = NLog.Web.NLogBuilder.ConfigureNLog(nlogConfig).GetCurrentClassLogger();
+            var logger = NLogBuilder.ConfigureNLog("./nlog.config").GetCurrentClassLogger();
+
             var host = CreateHostBuilder(args).Build();
 
             using (var scope = host.Services.CreateScope())
