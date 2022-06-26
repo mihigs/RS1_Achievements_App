@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using backend_api.Extensions;
 
 namespace backend_api
 {
@@ -68,6 +69,7 @@ namespace backend_api
                     };
                 });
 
+
             services.AddCors();
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -106,8 +108,14 @@ namespace backend_api
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen();
 
-            services.AddScoped<IRepository<User>, Repository<User>>();
+            // Work context
+            services.AddScoped<IWorkContext, WorkContext>();
 
+            // Add repositories
+            services.AddScoped<IRepository<User>, Repository<User>>();
+            services.AddScoped<IRepository<Event>, Repository<Event>>();
+            services.AddScoped<IRepository<Achievement>, Repository<Achievement>>();
+            services.AddScoped<IRepository<Team>, Repository<Team>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
