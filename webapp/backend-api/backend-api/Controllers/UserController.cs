@@ -194,7 +194,7 @@ namespace backend_api.Controllers
 
             var jwtSecurityToken = new JwtSecurityToken(
                 claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(100),
+                expires: DateTime.UtcNow.AddMinutes(1000),
                 signingCredentials: signingCredentials);
             return jwtSecurityToken;
         }
