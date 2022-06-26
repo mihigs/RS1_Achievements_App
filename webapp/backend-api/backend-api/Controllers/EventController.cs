@@ -94,7 +94,8 @@ namespace backend_api.Controllers
             {
                 Name = model.Name,
                 EventDate = model.EventDate,
-                CreatedBy = _workContext.GetCurrentUserId()
+                CreatedBy = _workContext.GetCurrentUserId(),
+                Description = model.Description
             };
 
             try

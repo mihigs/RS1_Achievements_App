@@ -12,5 +12,6 @@ namespace backend_api.Models
         public DateTime? EventDate { get; set; }
         public List<UserEvents> Attendees { get; set; }
         public List<EventAchievements> EventAchievements { get; set; }
+        public string Description { get; set; }
     }
 }

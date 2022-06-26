@@ -12,5 +12,6 @@ namespace backend_api.DTOs
         public string Name { get; set; }
         [Required]
         public DateTime EventDate { get; set; }
+        public string Description { get; set; }
     }
 }
