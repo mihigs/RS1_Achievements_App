@@ -189,7 +189,7 @@ namespace backend_api.Controllers
             .Union(userClaims)
             .Union(roleClaims);
 
-            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("JWT_KEY")));
+            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Q5I78ASB6X4TL8JESG7ROM3NNEKL65TOXYG"));
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
 
             var jwtSecurityToken = new JwtSecurityToken(

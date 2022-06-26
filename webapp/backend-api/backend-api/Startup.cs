@@ -65,7 +65,7 @@ namespace backend_api
                         ValidateAudience = false,
                         ValidateLifetime = true,
                         ClockSkew = TimeSpan.Zero,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("JWT_KEY")))
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Q5I78ASB6X4TL8JESG7ROM3NNEKL65TOXYG"))
                     };
                 });
 
