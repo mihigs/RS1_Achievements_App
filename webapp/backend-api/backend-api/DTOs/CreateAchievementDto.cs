@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace backend_api.Models
+namespace backend_api.DTOs
 {
-    public class Achievement : BaseEntity
+    public class CreateAchievementDto
     {
-        //TODO: add image
+        [Required]
         public string Name { get; set; }
         public string Description { get; set; }
         public long? EventId { get; set; }
-        public Event Event { get; set; }
         public long? TeamId { get; set; }
-        public Team Team { get; set; }
-        public string CreatedBy { get; set; }
-
     }
 }
