@@ -1,0 +1,9 @@
+.modal__header{
+    height: 10%;
+}
+.modal__content{
+    height: 80%;
+}
+.modal__footer{
+    height: 10%;
+}
