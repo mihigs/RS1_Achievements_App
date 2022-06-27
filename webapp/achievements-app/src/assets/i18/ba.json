@@ -1,6 +1,6 @@
 {
   "global": {
-    "register": "Register",
+    "register": "Registracija",
     "login": "Login",
     "logout": "Logout",
     "already_member": "Are you already a member?",
