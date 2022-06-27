@@ -1,6 +1,6 @@
-<div class="container">
+<div class="dashboard__main__container pt-3">
 
-    <div class="jumbotron mt-5">
+    <!-- <div class="jumbotron mt-5">
 
         <h1 class="display-4 text-center"> {{ 'global.welcome_message_header' | translate }} </h1>
         <p class="lead mt-2 text-center text-success"> {{ 'global.welcome_message_body' | translate }} </p>
@@ -10,6 +10,34 @@
         <div class="d-flex justify-content-center">
             <button (click)="logout()" class="btn btn-danger btn-lg"> {{ 'global.logout' | translate }} </button>
         </div>
+    </div> -->
+
+    <div class="dashboard__sidebar__container">
+        <!-- <button> -->
+            <mat-icon (click)="logout()" aria-hidden="false" class="dashboard__logout__icon" aria-label="Example home icon">exit_to_app</mat-icon>
+        <!-- </button> -->
+    </div>
+
+    <mat-grid-list [gutterSize]="'1rem'" cols="4" rowHeight="90px" class="dashboard__cards__container">
+        <mat-grid-tile
+            class="dashboard__card__container"
+            *ngFor="let tile of tiles"
+            [colspan]="tile.cols"
+            [rowspan]="tile.rows"
+            [style.background]="tile.color">
+        
+            <div class="container">
+                <div class="d-flex flex-column flex-center align-items-center">
+                    <h3 class="dashboard__card__title">{{tile.name}}</h3>
+                    <p class="dashboard__card__description">{{tile.description}}</p>
+                </div>
+            </div>
+                
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <div class="dashboard__sidebar__container">
+        
     </div>
 
 </div>

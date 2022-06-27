@@ -9,8 +9,8 @@ import {RegistrationRequest} from '../components/registration/RegistrationReques
 })
 export class AuthenticationService {
 
-    private readonly LOGIN_PATH: string = '/login';
-    private readonly REGISTRATION_PATH: string = '/register';
+    private readonly LOGIN_PATH: string = '/User/authenticate';
+    private readonly REGISTRATION_PATH: string = '/User/register';
 
     constructor(private apiService: ApiService, private router: Router) {
     }
@@ -35,7 +35,7 @@ export class AuthenticationService {
 
     login(loginRequest: LoginRequest) {
         return this.apiService.post(this.LOGIN_PATH, loginRequest).subscribe(resp => {
-            sessionStorage.setItem('token', resp.token);
+            sessionStorage.setItem('token', resp.result.token);
             this.router.navigate(['dashboard']);
         });
     }
@@ -44,7 +44,7 @@ export class AuthenticationService {
         return this.apiService.post(this.REGISTRATION_PATH, registrationRequest).subscribe(resp => {
 
             const loginRequest = {} as LoginRequest;
-            loginRequest.username = registrationRequest.username;
+            loginRequest.email = registrationRequest.email;
             loginRequest.password = registrationRequest.password;
             this.login(loginRequest);
         });

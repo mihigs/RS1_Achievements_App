@@ -6,24 +6,10 @@
         </div>
 
         <div class="form-label-group">
-            <input type="text" id="inputName" class="form-control" placeholder="{{ 'registration.name' | translate }}" required autofocus
-                   autocomplete="off" formControlName="name">
-            <label for="inputName">{{ 'registration.name' | translate }}</label>
-            <div class="alert alert-danger mt-2" *ngIf="invalidName()"> {{ 'validations.name' | translate }}</div>
-        </div>
-
-        <div class="form-label-group">
             <input type="email" id="inputEmail" class="form-control" placeholder="{{ 'registration.email' | translate }}" required autofocus
                    autocomplete="off" formControlName="email">
             <label for="inputEmail">{{ 'registration.email' | translate }}</label>
             <div class="alert alert-danger mt-2" *ngIf="invalidEmail()"> {{ 'validations.email' | translate }}</div>
-        </div>
-
-        <div class="form-label-group">
-            <input type="text" id="inputUsername" class="form-control" placeholder="{{ 'registration.username' | translate }}" required autofocus
-                   autocomplete="off" formControlName="username">
-            <label for="inputUsername">{{ 'registration.username' | translate }}</label>
-            <div class="alert alert-danger mt-2" *ngIf="invalidUsername()"> {{ 'validations.username' | translate }}</div>
         </div>
 
         <div class="form-label-group">

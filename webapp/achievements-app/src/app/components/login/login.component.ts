@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
     createLoginForm() {
         this.loginForm = this.formBuilder.group({
-            username: ['', Validators.required],
+            email: ['', Validators.required],
             password: ['', Validators.required]
         });
     }
@@ -39,8 +39,8 @@ export class LoginComponent implements OnInit {
         this.loginForm.reset();
     }
 
-    invalidUsername() {
-        return this.loginForm.get('username').hasError('required') && this.loginForm.get('username').dirty;
+    invalidEmail() {
+        return this.loginForm.get('email').hasError('required') && this.loginForm.get('email').dirty;
     }
 
     invalidPassword() {
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
     }
 
     isDisableLoginButton() {
-        return this.loginForm.invalid || this.invalidUsername() || this.invalidPassword();
+        return this.loginForm.invalid || this.invalidEmail() || this.invalidPassword();
     }
 
 }

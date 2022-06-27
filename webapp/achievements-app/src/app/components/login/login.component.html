@@ -5,10 +5,10 @@
         </div>
 
         <div class="form-label-group">
-            <input type="text" id="inputUsername" class="form-control" placeholder="{{ 'registration.username' | translate }}" autofocus
-                   autocomplete="off" formControlName="username" required>
-            <label for="inputUsername">{{ 'registration.username' | translate }}</label>
-            <div class="alert alert-danger mt-2" *ngIf="invalidUsername()"> {{ 'validations.username' | translate }}</div>
+            <input type="text" id="inputEmail" class="form-control" placeholder="{{ 'registration.email' | translate }}" autofocus
+                   autocomplete="off" formControlName="email" required>
+            <label for="inputEmail">{{ 'registration.email' | translate }}</label>
+            <div class="alert alert-danger mt-2" *ngIf="invalidEmail()"> {{ 'validations.email' | translate }}</div>
         </div>
 
         <div class="form-label-group">

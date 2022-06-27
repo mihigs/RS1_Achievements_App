@@ -132,7 +132,7 @@ namespace backend_api.Controllers
                 var message = $"No Accounts Registered with {model.Email}.";
                 result.StatusCode = System.Net.HttpStatusCode.BadRequest;
                 result.Errors.Add(new ApiError("No account", authenticationModel.Message));
-                return result;
+                return BadRequest(result);
             }
             if (await _userManager.CheckPasswordAsync(user, model.Password))
             {
@@ -165,7 +165,7 @@ namespace backend_api.Controllers
             }
             result.StatusCode = System.Net.HttpStatusCode.BadRequest;
             result.Errors.Add(new ApiError("Credentials", $"Incorrect Credentials for user {user.Email}."));
-            return result;
+            return BadRequest(result);
         }
         private async Task<JwtSecurityToken> CreateJwtToken(User user)
         {

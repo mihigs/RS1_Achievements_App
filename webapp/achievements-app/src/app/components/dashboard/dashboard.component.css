@@ -1,0 +1,51 @@
+.dashboard__main__container{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+/* cards */
+.dashboard__cards__container{
+    width: 100%;
+    margin: 0 1rem;
+}
+.dashboard__card__container{
+    cursor: pointer;
+    transition: scale ease-in-out 2s;
+}
+.dashboard__card__container:hover{
+    transform: scale(102%);
+}
+.dashboard__card__footer{
+    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 42%;
+    bottom: 2rem;
+}
+.dashboard__card__title{
+    font-weight: bold;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+}
+.dashboard__card__description{
+    color: white;
+}
+
+
+/* sidebar */
+.dashboard__sidebar__container{
+    height: 100%;
+    width: 10vw;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}
+.dashboard__logout__icon{
+    color: white;
+    cursor: pointer;
+}

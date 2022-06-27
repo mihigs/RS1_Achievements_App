@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {HomepageComponent} from './components/homepage/homepage.component';
 import {LoginComponent} from './components/login/login.component';
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
@@ -17,6 +16,10 @@ import {CustomHttpInterceptorService} from './services/custom-http-interceptor.s
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {RegistrationComponent} from './components/registration/registration.component';
 
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+
 export const createTranslateLoader = (http: HttpClient) => {
     return new TranslateHttpLoader(http, './assets/i18/', '.json');
 };
@@ -24,7 +27,6 @@ export const createTranslateLoader = (http: HttpClient) => {
 @NgModule({
     declarations: [
         AppComponent,
-        HomepageComponent,
         RegistrationComponent,
         LoginComponent,
         NotFoundComponent,
@@ -43,7 +45,10 @@ export const createTranslateLoader = (http: HttpClient) => {
                 useFactory: createTranslateLoader,
                 deps: [HttpClient]
             }
-        })
+        }),
+        MatGridListModule,
+        MatButtonModule,
+        MatIconModule,
     ],
     providers: [ApiService, AuthGuard, {
         provide: HTTP_INTERCEPTORS,
