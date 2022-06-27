@@ -19,6 +19,14 @@ import {RegistrationComponent} from './components/registration/registration.comp
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { AchievementsComponent } from './components/achievements/achievements.component';
+import { TeamsComponent } from './components/teams/teams.component';
+import { EventsComponent } from './components/events/events.component';
+import { MembersComponent } from './components/members/members.component';
+import { CreateTeamModalComponent } from './components/teams/create-team-modal/create-team-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 export const createTranslateLoader = (http: HttpClient) => {
     return new TranslateHttpLoader(http, './assets/i18/', '.json');
@@ -30,7 +38,12 @@ export const createTranslateLoader = (http: HttpClient) => {
         RegistrationComponent,
         LoginComponent,
         NotFoundComponent,
-        DashboardComponent
+        DashboardComponent,
+        AchievementsComponent,
+        TeamsComponent,
+        EventsComponent,
+        MembersComponent,
+        CreateTeamModalComponent,
     ],
     imports: [
         BrowserModule,
@@ -49,6 +62,13 @@ export const createTranslateLoader = (http: HttpClient) => {
         MatGridListModule,
         MatButtonModule,
         MatIconModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+    ],
+    exports: [
+        MatFormFieldModule, 
+        MatInputModule,
     ],
     providers: [ApiService, AuthGuard, {
         provide: HTTP_INTERCEPTORS,

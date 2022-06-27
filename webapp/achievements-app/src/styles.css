@@ -1,0 +1,44 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "font.css";
+@import "app/shared/modal.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {background-color: #192734; color: white}
+
+
+.page__header__left{
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+}
+.page__header__right{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+ /* .page__container{
+     padding: 2rem;
+ } */
+.page__title{
+    font-size: 250%;
+    letter-spacing: 2px;
+}
+
+.navigate__back__icon{
+    display: inline-block;
+}
+.icon__button{
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+.icon__button:focus{
+    outline: none;
+    transition: all 1.5s ease-in-out;
+}
+.icon__button:hover{
+    /* transform:scale(101%); */
+    transform:translate(-3px)
+}
