@@ -14,7 +14,7 @@
 
     <div class="dashboard__sidebar__container">
         <!-- <button> -->
-            <mat-icon (click)="logout()" aria-hidden="false" class="dashboard__logout__icon" aria-label="Example home icon">exit_to_app</mat-icon>
+            <mat-icon (click)="logout()" aria-hidden="false" class="dashboard__logout__icon icon__button" aria-label="Example home icon">exit_to_app</mat-icon>
         <!-- </button> -->
     </div>
 
@@ -24,6 +24,7 @@
             *ngFor="let tile of tiles"
             [colspan]="tile.cols"
             [rowspan]="tile.rows"
+            (click)="navigateTo(tile.path)"
             [style.background]="tile.color">
         
             <div class="container">
