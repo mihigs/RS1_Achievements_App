@@ -6,4 +6,5 @@ export class Achievement{
     teamId: number
     created: Date
     createdBy: number
+    tier: string
 }

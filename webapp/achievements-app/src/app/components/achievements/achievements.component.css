@@ -1,3 +1,7 @@
 .achievements__list__container{
     padding: 6rem;
 }
+.achievements__badge__container{
+    display: inline-block;
+    margin: 0.5rem;
+}
