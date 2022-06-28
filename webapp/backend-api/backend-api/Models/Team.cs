@@ -12,5 +12,6 @@ namespace backend_api.Models
         public List<TeamMember> TeamMembers { get; set; }
         public List<TeamAchievements> AvailableAchievements { get; set; }
         public string CreatedBy { get; set; }
+        public string TeamIconUrl { get; set; }
     }
 }

@@ -15,6 +15,8 @@ namespace backend_api.Models
         public long? TeamId { get; set; }
         public Team Team { get; set; }
         public string CreatedBy { get; set; }
+        public string Tier { get; set; }
+        public string IconUrl { get; set; }
 
     }
 }
