@@ -32,6 +32,7 @@ import { TeamDetailsComponent } from './components/teams/team-details/team-detai
 import { AchievementBadgeComponent } from './shared/components/achievement-badge/achievement-badge.component';
 import { CreateAchievementModalComponent } from './components/achievements/create-achievement-modal/create-achievement-modal.component';
 import {MatSelectModule} from '@angular/material/select';
+import { CreateEventModalComponent } from './components/events/create-event-modal/create-event-modal.component';
 
 export const createTranslateLoader = (http: HttpClient) => {
     return new TranslateHttpLoader(http, './assets/i18/', '.json');
@@ -52,6 +53,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         TeamDetailsComponent,
         AchievementBadgeComponent,
         CreateAchievementModalComponent,
+        CreateEventModalComponent,
     ],
     imports: [
         BrowserModule,
