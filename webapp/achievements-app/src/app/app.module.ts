@@ -27,6 +27,7 @@ import { CreateTeamModalComponent } from './components/teams/create-team-modal/c
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
 
 export const createTranslateLoader = (http: HttpClient) => {
     return new TranslateHttpLoader(http, './assets/i18/', '.json');
@@ -65,6 +66,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         MatDialogModule,
         MatFormFieldModule,
         MatInputModule,
+        MatCardModule,
     ],
     exports: [
         MatFormFieldModule, 

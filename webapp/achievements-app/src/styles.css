@@ -18,9 +18,9 @@ body {background-color: #192734; color: white}
     top: 2rem;
     right: 2rem;
 }
- /* .page__container{
-     padding: 2rem;
- } */
+ .page__container{
+     padding-top: 6.5rem;
+ }
 .page__title{
     font-size: 250%;
     letter-spacing: 2px;

@@ -1,22 +1,24 @@
 <div class="create__team__modal__main__container">
-    <div class="modal__header">
-        <h1>Create a new team</h1>
-    </div>
-    <div class="modal__content">
-        <mat-form-field appearance="fill" class="w-100 form-label-group">
-            <mat-label>Team name</mat-label>
-            <input matInput placeholder="Team name">
-            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-            <!-- <mat-error *ngIf="true">{{}}</mat-error> -->
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="w-100 form-label-group">
-            <mat-label>Describe what the team is about</mat-label>
-            <textarea matInput placeholder="Description"></textarea>
-            <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
-            <!-- <mat-error *ngIf="true">{{}}</mat-error> -->
-        </mat-form-field>
-    </div>
-    <div class="modal__footer">
-
-    </div>
+    <form class="example-form h-100"[formGroup]="createTeamForm" (ngSubmit)="sendCreateTeamRequest()">
+        <div class="modal__header">
+            <h1>Create a new team</h1>
+        </div>
+        <div class="modal__content">
+            <mat-form-field appearance="fill" class="w-100 form-label-group">
+                <mat-label>Team name</mat-label>
+                <input formControlName="name" matInput placeholder="Team name">
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <!-- <mat-error *ngIf="true">{{}}</mat-error> -->
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="w-100 h-75 form-label-group">
+                <mat-label>Describe what the team is about</mat-label>
+                <textarea formControlName="description" matInput placeholder="Description"></textarea>
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <!-- <mat-error *ngIf="true">{{}}</mat-error> -->
+            </mat-form-field>
+        </div>
+        <div class="modal__footer">
+            <button mat-raised-btn class="btn btn-lg btn-primary btn-block" type="submit" (click)="sendCreateTeamRequest()">Create</button>
+        </div>
+    </form>
 </div>
