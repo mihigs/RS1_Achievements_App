@@ -14,7 +14,8 @@
     <div class="teams__cards__container">
         <!-- <div class="teams__cards__menu"> -->
                 <mat-card class="example-card mb-4 teams__card"
-                *ngFor="let team of teams">
+                *ngFor="let team of teams"
+                (click)="goTeamDetails(team.id)">
                 <mat-card-header>
                     <!-- <div mat-card-avatar class="example-header-image"></div> -->
                     <mat-card-title>{{team.name}}</mat-card-title>

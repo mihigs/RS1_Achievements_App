@@ -4,6 +4,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { CreateTeamModalComponent } from './create-team-modal/create-team-modal.component';
 import { Team } from 'src/app/interfaces/Teams/Team';
 import { ApiService } from 'src/app/services/api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-teams',
@@ -12,16 +13,21 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class TeamsComponent implements OnInit {
 
-  constructor(private router: Router, public dialog: MatDialog, private apiService: ApiService) { }
+  constructor(private router: Router, private route: ActivatedRoute, public dialog: MatDialog, private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.getTeams();
   }
 
   teams: Team[];
+  selectedTeamId: string;
 
   goBack(): void {
     this.router.navigate([".."]);
+  }
+
+  goTeamDetails(teamId: string): void {
+    this.router.navigate(["teams", teamId]);
   }
 
   openCreateTeamModal(): void {

@@ -62,7 +62,7 @@ namespace backend_api.Controllers
         /// <param name="id">id of the team</param>
         /// <returns>Selected team</returns>
         [HttpGet("{id}")]
-        public IActionResult GetTeamById(string id)
+        public IActionResult GetTeamById(long id)
         {
             var response = new ApiResponse();
 

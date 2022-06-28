@@ -9,6 +9,7 @@ import {MembersComponent} from './components/members/members.component';
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {AuthGuard} from './auth.guard';
 import {RegistrationComponent} from './components/registration/registration.component';
+import { TeamDetailsComponent } from './components/teams/team-details/team-details.component';
 
 const routes: Routes = [
     {path: '', component: LoginComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
     {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
     {path: 'achievements', component: AchievementsComponent, canActivate: [AuthGuard]},
     {path: 'teams', component: TeamsComponent, canActivate: [AuthGuard]},
+    {path: 'teams/:id', component: TeamDetailsComponent, canActivate: [AuthGuard]},
     {path: 'events', component: EventsComponent, canActivate: [AuthGuard]},
     {path: 'members', component: MembersComponent, canActivate: [AuthGuard]},
     {path: '**', component: NotFoundComponent}
