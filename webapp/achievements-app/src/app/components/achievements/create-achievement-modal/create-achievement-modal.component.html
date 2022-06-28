@@ -1,0 +1,44 @@
+<div class="create__achievement__modal__main__container">
+    <form class="example-form h-100"[formGroup]="createAchievementForm" (ngSubmit)="sendCreateAchievementRequest()">
+        <div class="modal__header">
+            <h1>Create a new achievement</h1>
+        </div>
+        <div class="modal__content">
+            <mat-form-field appearance="fill" class="w-100 form-label-group">
+                <mat-label>Achievement name</mat-label>
+                <input formControlName="name" matInput placeholder="Achievement name"/>
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <!-- <mat-error *ngIf="true">{{}}</mat-error> -->
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="w-100 h-75 form-label-group">
+                <mat-label>Describe what the achievement is about</mat-label>
+                <textarea formControlName="description" matInput placeholder="Description"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="w-100 h-75 form-label-group">
+                <mat-label>Tier</mat-label>
+                <mat-select formControlName="tier" matSelect placeholder="Tier">
+                  <mat-option *ngFor="let index of ['1', '2', '3']" [value]="index">
+                    {{index}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="w-100 h-75 form-label-group">
+                <mat-label>Assign the achievement to a team</mat-label>
+                <mat-select formControlName="team" matSelect placeholder="Team">
+                  <mat-option [value]="null">none</mat-option>
+                  <mat-option *ngFor="let team of availableTeams" [value]="team.id">{{team.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="w-100 h-75 form-label-group">
+                <mat-label>Assign the achievement to an event</mat-label>
+                <mat-select formControlName="event" matSelect placeholder="Event">
+                  <mat-option [value]="null">none</mat-option>
+                  <mat-option *ngFor="let event of availableEvents" [value]="event.id">{{event.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="modal__footer">
+            <button mat-raised-btn class="btn btn-lg btn-primary btn-block" type="submit" (click)="sendCreateAchievementRequest()">Create</button>
+        </div>
+    </form>
+</div>

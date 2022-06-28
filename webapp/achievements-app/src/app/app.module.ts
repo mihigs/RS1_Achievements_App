@@ -30,6 +30,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import { TeamDetailsComponent } from './components/teams/team-details/team-details.component';
 import { AchievementBadgeComponent } from './shared/components/achievement-badge/achievement-badge.component';
+import { CreateAchievementModalComponent } from './components/achievements/create-achievement-modal/create-achievement-modal.component';
+import {MatSelectModule} from '@angular/material/select';
 
 export const createTranslateLoader = (http: HttpClient) => {
     return new TranslateHttpLoader(http, './assets/i18/', '.json');
@@ -49,6 +51,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         CreateTeamModalComponent,
         TeamDetailsComponent,
         AchievementBadgeComponent,
+        CreateAchievementModalComponent,
     ],
     imports: [
         BrowserModule,
@@ -71,10 +74,12 @@ export const createTranslateLoader = (http: HttpClient) => {
         MatFormFieldModule,
         MatInputModule,
         MatCardModule,
+        MatSelectModule,
     ],
     exports: [
         MatFormFieldModule, 
         MatInputModule,
+        MatSelectModule,
     ],
     providers: [ApiService, AuthGuard, {
         provide: HTTP_INTERCEPTORS,

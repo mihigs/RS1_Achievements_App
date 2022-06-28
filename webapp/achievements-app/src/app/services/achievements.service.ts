@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Router} from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
-import { Achievement } from '../interfaces/Teams/Achievement';
+import { Achievement } from '../interfaces/Achievements/Achievement';
+import { CreateAchievementRequest } from '../interfaces/Achievements/CreateAchievementRequest';
 import {ApiService} from './api.service';
 
 @Injectable({
@@ -19,6 +20,10 @@ export class AchievementsService {
 
     getAll(): Observable<Achievement[]> {
         return this.apiService.get(this.GET_ALL);
+    }
+
+    create(body: CreateAchievementRequest): Observable<any> {
+        return this.apiService.post(this.CREATE_ACHIEVEMENT, body);
     }
 
 }
