@@ -29,6 +29,7 @@ import {MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import { TeamDetailsComponent } from './components/teams/team-details/team-details.component';
+import { AchievementBadgeComponent } from './shared/components/achievement-badge/achievement-badge.component';
 
 export const createTranslateLoader = (http: HttpClient) => {
     return new TranslateHttpLoader(http, './assets/i18/', '.json');
@@ -47,6 +48,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         MembersComponent,
         CreateTeamModalComponent,
         TeamDetailsComponent,
+        AchievementBadgeComponent,
     ],
     imports: [
         BrowserModule,

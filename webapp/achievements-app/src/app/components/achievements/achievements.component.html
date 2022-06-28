@@ -1,1 +1,23 @@
-<p>achievements-page works!</p>
+<div class="achievements__main__container">
+    <!-- Header -->
+    <div class="page__header__left">
+        <button class="icon__button mr-5">
+            <mat-icon mat-button (click)="goBack()" aria-hidden="false" class="navigate__back__icon" aria-label="Example home icon">arrow_back</mat-icon>
+        </button>
+        <span class="page__title">Achievements</span>
+    </div>
+    <div class="page__header__right">
+        <!-- <button (click)="openCreateTeamModal()" mat-raised-button>Create team</button> -->
+        <mat-icon mat-button aria-hidden="false" class="icon__button" aria-label="Example home icon">filter_list</mat-icon>
+    </div>
+
+    <!-- Content -->
+    <div class="achievements__list__container">
+        <mat-grid-list cols="12" rowHeight="2:1">
+            <mat-grid-tile *ngFor="let achievement of achievementsData">
+                {{achievement.name}}
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    
+</div>
