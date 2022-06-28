@@ -1,0 +1,20 @@
+.teams__cards__container{
+    /* display: flex; */
+    /* flex-direction: row; */
+    padding: 3rem;
+}
+.teams__cards__menu{
+    /* display: flex; */
+    /* overflow-x: scroll; */
+}
+.teams__card{
+    /* height: 60vh; */
+    /* width: 30vw; */
+    height: 20vh;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+}
+.teams__card:hover{
+    transform: translateY(-2px);
+}
