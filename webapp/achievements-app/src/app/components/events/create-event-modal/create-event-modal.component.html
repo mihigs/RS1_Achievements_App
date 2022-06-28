@@ -1,0 +1,24 @@
+<div class="create__event__modal__main__container">
+    <form class="example-form h-100"[formGroup]="createEventForm" (ngSubmit)="sendCreateEventRequest()">
+        <div class="modal__header">
+            <h1>Create a new event</h1>
+        </div>
+        <div class="modal__content">
+            <mat-form-field appearance="fill" class="w-100 form-label-group">
+                <mat-label>Event name</mat-label>
+                <input formControlName="name" matInput placeholder="Event name">
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <!-- <mat-error *ngIf="true">{{}}</mat-error> -->
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="w-100 h-75 form-label-group">
+                <mat-label>Describe what the event is about</mat-label>
+                <textarea formControlName="description" matInput placeholder="Description"></textarea>
+                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                <!-- <mat-error *ngIf="true">{{}}</mat-error> -->
+            </mat-form-field>
+        </div>
+        <div class="modal__footer">
+            <button mat-raised-btn class="btn btn-lg btn-primary btn-block" type="submit" (click)="sendCreateEventRequest()">Create</button>
+        </div>
+    </form>
+</div>
