@@ -1,0 +1,32 @@
+.achievement__badge{
+    width: 120px;
+    height: 175px;
+    /* border: 1px solid white; */
+    border-radius: 1rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    /* transition: all 1s ease-in-out; */
+}
+.achievement__badge:hover{
+    transform: translateY(-3px);
+}
+.example-header-image{
+    width: 85px;
+    height: 85px;
+}
+.achievement__name{
+    font-weight: bold;
+}
+
+.tier__1{
+    background-color: #7ab929;
+}
+.tier__2{
+    background-color: #066bb4;
+}
+.tier__3{
+    background-color: #f7a60f;
+}

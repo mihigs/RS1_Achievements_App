@@ -1,1 +1,6 @@
-<p>achievement-badge works!</p>
+<div class="achievement__badge tier__{{achievement.tier ? achievement.tier : 1}}">
+    <img src="../../../../assets/tier-0{{achievement.tier ? achievement.tier : 1}}.png" mat-card-avatar class="example-header-image"/>
+    <p class="achievement__name">{{achievement.name}}</p>
+    <!-- <p class="achievement__description">{{achievement.description}}</p> -->
+    <!-- <p class="achievement__additional">Aloo</p> -->
+</div>

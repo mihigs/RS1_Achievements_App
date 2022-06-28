@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Achievement } from 'src/app/interfaces/Achievements/Achievement';
 
 @Component({
   selector: 'app-achievement-badge',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./achievement-badge.component.css']
 })
 export class AchievementBadgeComponent implements OnInit {
+  @Input() achievement: Achievement;
 
   constructor() { }
 
