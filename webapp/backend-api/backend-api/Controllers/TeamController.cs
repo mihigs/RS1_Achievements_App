@@ -103,7 +103,8 @@ namespace backend_api.Controllers
             {
                 Name = model.Name,
                 CreatedBy = _workContext.GetCurrentUserId(),
-                Description = model.Description
+                Description = model.Description,
+                TeamIconUrl = model.TeamIconUrl != null ? model.TeamIconUrl : ""
             };
 
             try

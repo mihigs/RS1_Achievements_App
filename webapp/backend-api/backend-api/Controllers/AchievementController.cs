@@ -96,7 +96,9 @@ namespace backend_api.Controllers
                 Description = model.Description,
                 EventId = model.EventId == 0 ? null : model.EventId,
                 TeamId = model.TeamId == 0 ? null : model.TeamId,
-                CreatedBy = _workContext.GetCurrentUserId()
+                CreatedBy = _workContext.GetCurrentUserId(),
+                Tier = model.Tier,
+                IconUrl = model.IconUrl != null ? model.IconUrl : ""
             };
 
             try

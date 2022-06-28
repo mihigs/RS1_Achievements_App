@@ -13,5 +13,7 @@ namespace backend_api.DTOs
         public string Description { get; set; }
         public long? EventId { get; set; }
         public long? TeamId { get; set; }
+        public string Tier { get; set; }
+        public string IconUrl { get; set; }
     }
 }
