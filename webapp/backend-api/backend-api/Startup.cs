@@ -19,6 +19,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
 using backend_api.Extensions;
+using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace backend_api
 {
@@ -71,7 +73,11 @@ namespace backend_api
 
 
             services.AddCors();
-            services.AddControllers();
+            services.AddControllers()
+                    .AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+            //    .AddJsonOptions(x =>
+            //x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Achievements.Api", Version = "v1" });
@@ -116,6 +122,7 @@ namespace backend_api
             services.AddScoped<IRepository<Event>, Repository<Event>>();
             services.AddScoped<IRepository<Achievement>, Repository<Achievement>>();
             services.AddScoped<IRepository<Team>, Repository<Team>>();
+            services.AddScoped<IRepository<TeamMember>, Repository<TeamMember>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace backend_api.Controllers
 {
@@ -24,15 +26,18 @@ namespace backend_api.Controllers
     public class TeamController : ControllerBase
     {
         private readonly IRepository<Team> _teamRepository;
+        private readonly IRepository<TeamMember> _teamMemberRepository;
         private readonly IWorkContext _workContext;
 
         public TeamController(
             IRepository<Team> teamRepository,
-            IWorkContext workContext
+            IWorkContext workContext,
+            IRepository<TeamMember> teamMemberRepository
             )
         {
             _teamRepository = teamRepository;
             _workContext = workContext;
+            _teamMemberRepository = teamMemberRepository;
         }
         /// <summary>
         /// Will return a list of all teams in the database.
@@ -68,7 +73,11 @@ namespace backend_api.Controllers
 
             try
             {
-                var team = _teamRepository.GetById(id);
+                var team = _teamRepository.Query()
+                    .Where(x => x.Id == id)
+                    .Include(x => x.TeamMembers)
+                    .Include(x => x.AvailableAchievements)
+                    .FirstOrDefault();
                 response.Result = team;
                 response.StatusCode = HttpStatusCode.OK;
             }
@@ -105,6 +114,69 @@ namespace backend_api.Controllers
             catch (Exception ex)
             {
                 response.Errors.Add(new ApiError("getTeam", ex.Message));
+                response.StatusCode = HttpStatusCode.BadRequest;
+                throw;
+            }
+            return Ok(response);
+        }
+        [HttpPost("join-team")]
+        public IActionResult JoinTeam(long teamId)
+        {
+            var response = new ApiResponse();
+            var existingTeam = _teamRepository.Query().Where(e => e.Id == teamId).FirstOrDefault();
+            if (existingTeam == null)
+            {
+                response.Errors.Add(new ApiError("joinTeam", "doesnt exist"));
+                return NotFound(response);
+            }
+
+            var teamMemberRecord = new TeamMember()
+            {
+                TeamId = teamId,
+                UserId = _workContext.GetCurrentUserId()
+            };
+
+            try
+            {
+                _teamMemberRepository.Add(teamMemberRecord);
+                response.StatusCode = HttpStatusCode.OK;
+            }
+            catch (Exception ex)
+            {
+                response.Errors.Add(new ApiError("joinTeam", ex.Message));
+                response.StatusCode = HttpStatusCode.BadRequest;
+                throw;
+            }
+            return Ok(response);
+        }
+        [HttpPost("leave-team")]
+        public IActionResult LeaveTeam(long teamId)
+        {
+            var response = new ApiResponse();
+            var existingTeam = _teamRepository.Query().Where(e => e.Id == teamId).FirstOrDefault();
+            if (existingTeam == null)
+            {
+                response.Errors.Add(new ApiError("leaveTeam", "team doesnt exist"));
+                return NotFound(response);
+            }
+
+            var userId = _workContext.GetCurrentUserId();
+            var teamMemberRecord = _teamMemberRepository.Query().Where(x => x.TeamId == teamId && x.UserId == userId).FirstOrDefault();
+
+            if(teamMemberRecord == null)
+            {
+                response.Errors.Add(new ApiError("leaveTeam", "user not a part of selected team"));
+                return NotFound(response);
+            }
+
+            try
+            {
+                _teamMemberRepository.Remove(teamMemberRecord);
+                response.StatusCode = HttpStatusCode.OK;
+            }
+            catch (Exception ex)
+            {
+                response.Errors.Add(new ApiError("leaveTeam", ex.Message));
                 response.StatusCode = HttpStatusCode.BadRequest;
                 throw;
             }
