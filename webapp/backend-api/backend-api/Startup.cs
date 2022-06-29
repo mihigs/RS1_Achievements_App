@@ -123,6 +123,7 @@ namespace backend_api
             services.AddScoped<IRepository<Achievement>, Repository<Achievement>>();
             services.AddScoped<IRepository<Team>, Repository<Team>>();
             services.AddScoped<IRepository<TeamMember>, Repository<TeamMember>>();
+            services.AddScoped<IRepository<AchievementsUser>, Repository<AchievementsUser>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
