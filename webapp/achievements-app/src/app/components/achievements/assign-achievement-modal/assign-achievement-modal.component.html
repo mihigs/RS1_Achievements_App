@@ -1,0 +1,18 @@
+<div class="assign__achievement__modal__main__container">
+    <form class="example-form h-100"[formGroup]="assignAchievementForm" (ngSubmit)="sendAssignAchievementRequest()">
+        <div class="modal__header">
+            <h1>Assign an achievement to a member</h1>
+        </div>
+        <div class="modal__content assign__achievement__users__container">
+            <div *ngFor="let member of availableUsers" class="assign__achievement__user" [ngClass]="{'user__selected': member.id == selectedUser}" (click)="selectUser(member.id)">
+                <i mat-card-avatar class="material-icons user__avatar">account_circle</i>
+                <p class="">
+                    {{member.firstName}} {{member.lastName}}
+                </p>
+            </div>
+        </div>
+        <div class="modal__footer">
+            <button [ngClass]="{'disabled': selectedUser == null}" mat-raised-btn class="btn btn-lg btn-primary btn-block" type="submit" (click)="sendAssignAchievementRequest()">Assign</button>
+        </div>
+    </form>
+</div>

@@ -24,14 +24,14 @@
             </mat-form-field>
             <mat-form-field appearance="fill" class="w-100 h-75 form-label-group">
                 <mat-label>Assign the achievement to a team</mat-label>
-                <mat-select formControlName="team" matSelect placeholder="Team">
+                <mat-select formControlName="teamId" matSelect placeholder="Team">
                   <mat-option [value]="null">none</mat-option>
                   <mat-option *ngFor="let team of availableTeams" [value]="team.id">{{team.name}}</mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field appearance="fill" class="w-100 h-75 form-label-group">
                 <mat-label>Assign the achievement to an event</mat-label>
-                <mat-select formControlName="event" matSelect placeholder="Event">
+                <mat-select formControlName="eventId" matSelect placeholder="Event">
                   <mat-option [value]="null">none</mat-option>
                   <mat-option *ngFor="let event of availableEvents" [value]="event.id">{{event.name}}</mat-option>
                 </mat-select>

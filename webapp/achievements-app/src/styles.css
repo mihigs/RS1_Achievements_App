@@ -43,3 +43,8 @@ body {background-color: #192734; color: white}
     /* transform:scale(101%); */
     transform:translate(-3px)
 }
+
+.secondary__text{
+    opacity: 0.5;
+    letter-spacing: 1px;
+}

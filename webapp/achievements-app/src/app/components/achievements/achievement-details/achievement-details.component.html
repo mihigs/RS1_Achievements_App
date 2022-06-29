@@ -1,0 +1,47 @@
+<div class="achievement__details__main__container">
+    <!-- Header -->
+    <div class="page__header__left">
+        <button class="icon__button mr-5">
+            <mat-icon mat-button (click)="goBack()" aria-hidden="false" class="navigate__back__icon" aria-label="Example home icon">arrow_back</mat-icon>
+        </button>
+        <span class="page__title">{{achievementDetails.name}}</span>
+    </div>
+    <div class="page__header__right">
+        <mat-icon mat-button (click)="openAssignAchievementDialog()" aria-hidden="false" class="icon__button mr-3" aria-label="Example home icon">assignment_turned_in</mat-icon>
+        <mat-icon mat-button (click)="openRemoveAchievementDialog()" aria-hidden="false" class="icon__button" aria-label="Example home icon">delete</mat-icon>
+    </div>
+
+    <!-- Content -->
+    <div class="achievement__details__content__container">
+        <img src="../../../../assets/tier-0{{achievementDetails.tier ? achievementDetails.tier : 1}}.png" mat-card-avatar class="achievement__details__badge"/>
+        <p class="secondary__text">
+            Requirement
+        </p>
+        <p class="achievement__details__description">
+            {{achievementDetails.description}}
+        </p>
+        <p class="secondary__text">
+            Obtainable
+        </p>
+        <p class="achievement__details__description">
+            {{achievementDetails.team?.name}}
+        </p>
+        <p class="secondary__text">
+            Tier
+        </p>
+        <div class="achievement__details__description achievement__tier__star__container">
+            <mat-icon *ngFor="let tier of getTier()" mat-button aria-hidden="false" class="achievement__tier__star" aria-label="Example home icon">star</mat-icon>
+        </div>
+        <p class="secondary__text">
+            Achieved by
+        </p>
+        <div>
+            <div *ngFor="let achiever of achievementDetails.achievedBy">
+                <i mat-card-avatar class="material-icons user__avatar">account_circle</i>
+                <p class="secondary__text">
+                    {{achiever.firstName}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

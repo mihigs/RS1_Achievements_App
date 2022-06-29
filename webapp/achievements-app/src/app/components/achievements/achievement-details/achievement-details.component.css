@@ -1,0 +1,15 @@
+.achievement__details__content__container{
+    padding: 6rem;
+}
+.achievement__details__description{
+    font-size: 125%;
+    letter-spacing: 0.3px;
+    width: 53vw;
+    margin-bottom: 2rem;
+}
+.achievement__details__badge{
+    width: 16rem;
+    position: absolute;
+    right: 3rem;
+    top: 3rem;
+}

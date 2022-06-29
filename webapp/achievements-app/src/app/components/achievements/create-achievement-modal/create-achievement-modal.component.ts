@@ -40,8 +40,8 @@ export class CreateAchievementModalComponent implements OnInit {
         name: ['', Validators.required],
         description: ['', Validators.required],
         tier: ['', Validators.required],
-        event: [null],
-        team: [null],
+        eventId: [null],
+        teamId: [''],
         iconUrl: ['']
     });
 }

@@ -18,7 +18,7 @@
             <!-- <mat-grid-tile *ngFor="let achievement of achievementsData" class="achievements__grid__tile"> -->
                 <!-- </mat-grid-tile> -->
                 <!-- </mat-grid-list> -->
-        <app-achievement-badge class="achievements__badge__container" *ngFor="let achievement of achievementsData" [achievement]="achievement"></app-achievement-badge>
+        <app-achievement-badge (click)="goAchievementDetails(achievement.id)" class="achievements__badge__container" *ngFor="let achievement of achievementsData" [achievement]="achievement"></app-achievement-badge>
     </div>
     
 </div>

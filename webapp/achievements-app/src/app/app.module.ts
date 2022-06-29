@@ -29,10 +29,12 @@ import {MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import { TeamDetailsComponent } from './components/teams/team-details/team-details.component';
+import { AchievementDetailsComponent } from './components/achievements/achievement-details/achievement-details.component';
 import { AchievementBadgeComponent } from './shared/components/achievement-badge/achievement-badge.component';
 import { CreateAchievementModalComponent } from './components/achievements/create-achievement-modal/create-achievement-modal.component';
 import {MatSelectModule} from '@angular/material/select';
 import { CreateEventModalComponent } from './components/events/create-event-modal/create-event-modal.component';
+import { AssignAchievementModalComponent } from './components/achievements/assign-achievement-modal/assign-achievement-modal.component';
 
 export const createTranslateLoader = (http: HttpClient) => {
     return new TranslateHttpLoader(http, './assets/i18/', '.json');
@@ -54,6 +56,8 @@ export const createTranslateLoader = (http: HttpClient) => {
         AchievementBadgeComponent,
         CreateAchievementModalComponent,
         CreateEventModalComponent,
+        AchievementDetailsComponent,
+        AssignAchievementModalComponent,
     ],
     imports: [
         BrowserModule,

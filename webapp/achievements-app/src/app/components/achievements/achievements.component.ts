@@ -23,6 +23,10 @@ export class AchievementsComponent implements OnInit {
     this.router.navigate([".."]);
   }
 
+  goAchievementDetails(achievementId: string): void {
+    this.router.navigate(["achievements", achievementId]);
+  }
+
   openCreateAchievementModal(): void {
     const dialogRef = this.dialog.open(CreateAchievementModalComponent, {
       // width: '250px',
