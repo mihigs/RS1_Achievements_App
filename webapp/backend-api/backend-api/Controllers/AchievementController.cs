@@ -180,5 +180,42 @@ namespace backend_api.Controllers
             }
             return Ok(response);
         }
+        [HttpPost("filter")]
+        public IActionResult FilterAchievements(FilterAchievementsDto model)
+        {
+            var response = new ApiResponse();
+
+            try
+            {
+                var achievementsQuery = _achievementRepository.Query().Include(x => x.AchievedBy).AsQueryable();
+
+                if (model.TeamId.HasValue)
+                {
+                    achievementsQuery = achievementsQuery.Include(x => x.Team).Where(x => x.TeamId == model.TeamId.Value);
+                }
+                if (model.EventId.HasValue)
+                {
+                    achievementsQuery = achievementsQuery.Include(x => x.Event).Where(x => x.EventId == model.EventId.Value);
+                }
+
+                if (model.UserId != String.Empty)
+                {
+                    var achievementsUserQuery = _achievementsUserRepository.Query().Where(x => x.UserId == model.UserId).Select(x => x.AchievementId).ToList();
+                    achievementsQuery = achievementsQuery.Where(x => achievementsUserQuery.Contains(x.Id));
+                }
+
+                var result = achievementsQuery.ToList();
+
+                response.Result = result;
+                response.StatusCode = HttpStatusCode.OK;
+            }
+            catch (Exception ex)
+            {
+                response.Errors.Add(new ApiError("getAchievement", ex.Message));
+                response.StatusCode = HttpStatusCode.BadRequest;
+                throw;
+            }
+            return Ok(response);
+        }
     }
 }
