@@ -14,4 +14,8 @@ export class AchievementBadgeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getTier() {
+    return Array(parseInt(this.achievement.tier ? this.achievement.tier : '1')).fill(0).map((x, i)=>i);
+  }
+
 }

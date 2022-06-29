@@ -30,3 +30,8 @@
 .tier__3{
     background-color: #f7a60f;
 }
+
+.achievement__tier__star__container{
+    display: flex;
+    flex-direction: row;
+}
