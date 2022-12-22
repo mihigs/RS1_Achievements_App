@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiURL: 'http://prod-locahost:8080'
+  apiURL: 'https://api.p2077.app.fit.ba/api'
 };
