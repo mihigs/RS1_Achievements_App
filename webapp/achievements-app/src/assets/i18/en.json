@@ -6,10 +6,49 @@
     "already_member": "Are you already a member?",
     "create_new_account": "Create new account",
     "welcome_message_header" : "You're welcome!",
-    "welcome_message_body" : "You have successfully logged in."
+    "welcome_message_body" : "You have successfully logged in.",
+    "assign": "Assign",
+    "create": "Create"
   },
   "homepage": {
-    "title": "Achievements"
+    "title": "Achievements",
+    "Achievements": {
+      "name": "Achievements",
+      "description": "Preview all achievements"
+    },
+    "Events": {
+      "name": "Events",
+      "description": "See upcomming events"
+    },
+    "Members": {
+      "name": "Members",
+      "description": "Get to know your colleagues"
+    },
+    "Teams": {
+      "name": "Teams",
+      "description": "Explore your teams"
+    }
+  },
+  "achievements": {
+    "requirement": "Requirement",
+    "obtainable": "Obtainable",
+    "tier": "Tier",
+    "achieved_by": "Achieved by",
+    "assign_achievement": "Assign an achievement to a member"
+  },
+  "teams": {
+    "teams": "Teams",
+    "create_team": "Create team",
+    "create_new_team": "Create a new team",
+    "team_name": "Team name",
+    "team_description": "Describe what the team is about"
+  },
+  "events": {
+    "events": "Events",
+    "create_event": "Create event",
+    "create_new_event": "Create a new event",
+    "event_name": "Event name",
+    "event_description": "Describe what the event is about"
   },
   "registration": {
     "description": "Create a free account!",

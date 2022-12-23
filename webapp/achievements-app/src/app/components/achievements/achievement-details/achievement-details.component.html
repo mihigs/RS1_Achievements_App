@@ -15,25 +15,25 @@
     <div class="achievement__details__content__container">
         <img src="../../../../assets/tier-0{{achievementDetails.tier ? achievementDetails.tier : 1}}.png" mat-card-avatar class="achievement__details__badge"/>
         <p class="secondary__text">
-            Requirement
+            {{'achievements.requirement' | translate}}
         </p>
         <p class="achievement__details__description">
             {{achievementDetails.description}}
         </p>
         <p class="secondary__text">
-            Obtainable
+            {{'achievements.obtainable' | translate}}
         </p>
         <p class="achievement__details__description">
             {{achievementDetails.team?.name}}
         </p>
         <p class="secondary__text">
-            Tier
+            {{'achievements.tier' | translate}}
         </p>
         <div class="achievement__details__description achievement__tier__star__container">
             <mat-icon *ngFor="let tier of getTier()" mat-button aria-hidden="false" class="achievement__tier__star" aria-label="Example home icon">star</mat-icon>
         </div>
         <p class="secondary__text">
-            Achieved by
+            {{'achievements.achieved_by' | translate}}
         </p>
         <div>
             <div *ngFor="let achiever of achievementDetails.achievedBy">

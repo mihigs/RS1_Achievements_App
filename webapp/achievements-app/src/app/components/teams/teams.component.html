@@ -4,10 +4,10 @@
         <button class="icon__button mr-5">
             <mat-icon mat-button (click)="goBack()" aria-hidden="false" class="navigate__back__icon" aria-label="Example home icon">arrow_back</mat-icon>
         </button>
-        <span class="page__title">Teams</span>
+        <span class="page__title">{{'teams.teams' | translate}}</span>
     </div>
     <div class="page__header__right">
-        <button (click)="openCreateTeamModal()" mat-raised-button>Create team</button>
+        <button (click)="openCreateTeamModal()" mat-raised-button>{{'teams.create_team' | translate}}</button>
     </div>
 
     <!-- Content -->

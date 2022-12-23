@@ -1,7 +1,7 @@
 <div class="assign__achievement__modal__main__container">
     <form class="example-form h-100"[formGroup]="assignAchievementForm" (ngSubmit)="sendAssignAchievementRequest()">
         <div class="modal__header">
-            <h1>Assign an achievement to a member</h1>
+            <h1>{{'achievements.assign_achievement' | translate}}</h1>
         </div>
         <div class="modal__content assign__achievement__users__container">
             <div *ngFor="let member of availableUsers" class="assign__achievement__user" [ngClass]="{'user__selected': member.id == selectedUser}" (click)="selectUser(member.id)">
@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="modal__footer">
-            <button [ngClass]="{'disabled': selectedUser == null}" mat-raised-btn class="btn btn-lg btn-primary btn-block" type="submit" (click)="sendAssignAchievementRequest()">Assign</button>
+            <button [ngClass]="{'disabled': selectedUser == null}" mat-raised-btn class="btn btn-lg btn-primary btn-block" type="submit" (click)="sendAssignAchievementRequest()">{{'global.assign' | translate}}</button>
         </div>
     </form>
 </div>
