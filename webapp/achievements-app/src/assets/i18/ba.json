@@ -1,30 +1,69 @@
 {
   "global": {
     "register": "Registracija",
-    "login": "Login",
-    "logout": "Logout",
-    "already_member": "Are you already a member?",
-    "create_new_account": "Create new account",
-    "welcome_message_header" : "You're welcome!",
-    "welcome_message_body" : "You have successfully logged in."
+    "login": "Prijava",
+    "logout": "Odjava",
+    "already_member": "Da li ste već član?",
+    "create_new_account": "Kreiraj novi račun",
+    "welcome_message_header" : "Dobrodošli!",
+    "welcome_message_body" : "Uspiješno ste prijavljeni.",
+    "assign": "Dodaj",
+    "create": "Kreiraj"
   },
   "homepage": {
-    "title": "Achievements"
+    "title": "Achievements",
+    "Achievements": {
+      "name": "Dostignuća",
+      "description": "Pregledaj sva dostignuća"
+    },
+    "Events": {
+      "name": "Događaji",
+      "description": "Nadolazeći događaji"
+    },
+    "Members": {
+      "name": "Članovi",
+      "description": "Upoznaj kolege"
+    },
+    "Teams": {
+      "name": "Timovi",
+      "description": "Istraži timove"
+    }
+  },
+  "achievements": {
+    "requirement": "Uslov",
+    "obtainable": "Ostvarivo",
+    "tier": "Nivo",
+    "achieved_by": "Ostvareno od",
+    "assign_achievement": "Dodaj dostignuće članu"
+  },
+  "teams": {
+    "teams": "Timovi",
+    "create_team": "Kreiraj tim",
+    "create_new_team": "Kreiraj novi tim",
+    "team_name": "Ime tima",
+    "team_description": "Opis tima"
+  },
+  "events": {
+    "events": "Događaji",
+    "create_event": "Kreiraj događaj",
+    "create_new_event": "Kreiraj novi događaj",
+    "event_name": "Naziv događaja",
+    "event_description": "Opis događaja"
   },
   "registration": {
-    "description": "Create a free account!",
-    "name": "Name",
-    "email": "Email address",
-    "password": "Password"
+    "description": "Kreiraj besplatan račun!",
+    "name": "Ime",
+    "email": "Email adresa",
+    "password": "Šifra"
   },
   "validations": {
-    "name": "Please enter a name",
-    "email": "Please enter an email",
-    "password": "Please enter a password"
+    "name": "Molimo unesite vaše ime",
+    "email": "Molimo unesite vaš email",
+    "password": "Molimo unesite vašu šifru"
   },
   "not_found_page": {
     "header": "OOPS!",
-    "not_found_message": "Page Not Found",
-    "go_to_dashboard_button": "GO TO DASHBOARD"
+    "not_found_message": "Stranica nije pronađena",
+    "go_to_dashboard_button": "Vrati se na početnu stranicu"
   }
 }
