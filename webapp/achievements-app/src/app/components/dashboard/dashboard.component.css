@@ -40,7 +40,7 @@
     width: 10vw;
     padding: 0.5rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: auto;
@@ -48,4 +48,10 @@
 .dashboard__logout__icon{
     color: white;
     cursor: pointer;
+}
+.dashboard_language_switch_dropdown{
+    color: white;
+    background-color: white;
+    width: 50px;
+    margin-bottom: 1rem;
 }

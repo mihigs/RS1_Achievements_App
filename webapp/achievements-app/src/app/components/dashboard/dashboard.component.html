@@ -14,6 +14,10 @@
 
     <div class="dashboard__sidebar__container">
         <!-- <button> -->
+            <mat-select [(value)]="language_selected" class="dashboard_language_switch_dropdown" matSelect>
+                <mat-option value="en" (click)="switchLanguage('en')">EN</mat-option>
+                <mat-option value="ba" (click)="switchLanguage('ba')">BA</mat-option>
+            </mat-select>
             <mat-icon (click)="logout()" aria-hidden="false" class="dashboard__logout__icon icon__button" aria-label="Example home icon">exit_to_app</mat-icon>
         <!-- </button> -->
     </div>
@@ -29,8 +33,8 @@
         
             <div class="container">
                 <div class="d-flex flex-column flex-center align-items-center">
-                    <h3 class="dashboard__card__title">{{tile.name}}</h3>
-                    <p class="dashboard__card__description">{{tile.description}}</p>
+                    <h3 class="dashboard__card__title">{{'homepage.' + tile.name + '.name' | translate}}</h3>
+                    <p class="dashboard__card__description">{{'homepage.' + tile.name + '.description' | translate}}</p>
                 </div>
             </div>
                 
