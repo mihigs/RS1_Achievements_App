@@ -21,6 +21,7 @@ using Microsoft.OpenApi.Models;
 using backend_api.Extensions;
 using System.Text.Json.Serialization;
 using Newtonsoft.Json;
+using backend_api.SignalR;
 
 namespace backend_api
 {
@@ -36,6 +37,10 @@ namespace backend_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //SignalR Service
+            services.AddControllersWithViews();
+            services.AddSignalR();
+
             //User Manager Service
             services.AddIdentity<User, IdentityRole>(opt =>
             {
@@ -71,8 +76,16 @@ namespace backend_api
                     };
                 });
 
+            //Allow cors for port 4200
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder => builder
+                    .WithOrigins("http://localhost:4200")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
 
-            services.AddCors();
             services.AddControllers()
                     .AddNewtonsoftJson(options =>
                     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
@@ -167,6 +180,11 @@ namespace backend_api
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapHub<Notifier>("/notifier");
+            });
 
             app.UseEndpoints(endpoints =>
             {
