@@ -53,6 +53,8 @@
   "registration": {
     "description": "Kreiraj besplatan račun!",
     "name": "Ime",
+    "firstName": "Ime",
+    "lastName": "Prezime",
     "email": "Email adresa",
     "password": "Šifra"
   },

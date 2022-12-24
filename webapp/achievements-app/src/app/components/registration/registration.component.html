@@ -6,6 +6,20 @@
         </div>
 
         <div class="form-label-group">
+            <input type="firstName" id="inputFirstName" class="form-control" placeholder="{{ 'registration.firstName' | translate }}" required autofocus
+                   autocomplete="off" formControlName="firstName">
+            <label for="inputFirstName">{{ 'registration.firstName' | translate }}</label>
+            <div class="alert alert-danger mt-2" *ngIf="invalidFirstName()"> {{ 'validations.firstName' | translate }}</div>
+        </div>
+
+        <div class="form-label-group">
+            <input type="lastName" id="inputLastName" class="form-control" placeholder="{{ 'registration.lastName' | translate }}" required autofocus
+                   autocomplete="off" formControlName="lastName">
+            <label for="inputLastName">{{ 'registration.lastName' | translate }}</label>
+            <div class="alert alert-danger mt-2" *ngIf="invalidLastName()"> {{ 'validations.lastName' | translate }}</div>
+        </div>
+
+        <div class="form-label-group">
             <input type="email" id="inputEmail" class="form-control" placeholder="{{ 'registration.email' | translate }}" required autofocus
                    autocomplete="off" formControlName="email">
             <label for="inputEmail">{{ 'registration.email' | translate }}</label>

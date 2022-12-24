@@ -23,7 +23,8 @@ export class RegistrationComponent implements OnInit {
 
     createRegisterForm() {
         this.registerForm = this.formBuilder.group({
-            name: ['', Validators.required],
+            firstName: ['', Validators.required],
+            lastName: ['', Validators.required],
             email: ['', Validators.required],
             password: ['', Validators.required]
         });
@@ -39,8 +40,12 @@ export class RegistrationComponent implements OnInit {
 
     }
 
-    invalidName() {
-        return this.registerForm.get('name').hasError('required') && this.registerForm.get('name').dirty;
+    invalidFirstName() {
+        return this.registerForm.get('firstName').hasError('required') && this.registerForm.get('firstName').dirty;
+    }
+    
+    invalidLastName() {
+        return this.registerForm.get('lastName').hasError('required') && this.registerForm.get('lastName').dirty;
     }
 
     invalidEmail() {
@@ -52,7 +57,7 @@ export class RegistrationComponent implements OnInit {
     }
 
     isDisableRegisterButton() {
-        return this.registerForm.invalid || this.invalidPassword() || this.invalidName() || this.invalidEmail();
+        return this.registerForm.invalid || this.invalidPassword() || this.invalidFirstName() || this.invalidLastName() || this.invalidEmail();
     }
 
 }
