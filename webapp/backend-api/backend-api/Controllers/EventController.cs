@@ -2,10 +2,12 @@
 using backend_api.DTOs;
 using backend_api.Extensions;
 using backend_api.Models;
+using backend_api.SignalR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -25,14 +27,17 @@ namespace backend_api.Controllers
     {
         private readonly IRepository<Event> _organisedEventRepository;
         private readonly IWorkContext _workContext;
+        private readonly IHubContext<Notifier> _notifierContext;
 
         public EventController(
             IRepository<Event> organisedEventRepository,
-            IWorkContext workContext
+            IWorkContext workContext,
+            IHubContext<Notifier> notifierContext
             )
         {
             _organisedEventRepository = organisedEventRepository;
             _workContext = workContext;
+            _notifierContext = notifierContext;
         }
         /// <summary>
         /// Will return a list of all organisedEvents in the database.
@@ -101,6 +106,7 @@ namespace backend_api.Controllers
             try
             {
                 _organisedEventRepository.Add(newEvent);
+                _notifierContext.Clients.All.SendAsync("ReceiveMessage", "New event added");
                 response.StatusCode = HttpStatusCode.OK;
             }
             catch (Exception ex)

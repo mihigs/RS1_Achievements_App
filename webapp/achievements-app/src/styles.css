@@ -1,6 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "font.css";
 @import "app/shared/modal.css";
+@import "../node_modules/angular-notifier/styles.css";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -39,7 +39,6 @@ export class CreateEventModalComponent implements OnInit {
     }
 
     this.createEventRequest = Object.assign({}, this.createEventForm.value);
-    debugger;
     this.apiService.post("/Event/create-event", this.createEventRequest).subscribe();
     this.dialogRef.close();
   }

@@ -35,6 +35,7 @@ import { CreateAchievementModalComponent } from './components/achievements/creat
 import {MatSelectModule} from '@angular/material/select';
 import { CreateEventModalComponent } from './components/events/create-event-modal/create-event-modal.component';
 import { AssignAchievementModalComponent } from './components/achievements/assign-achievement-modal/assign-achievement-modal.component';
+import { NotifierModule } from 'angular-notifier';
 
 export const createTranslateLoader = (http: HttpClient) => {
     return new TranslateHttpLoader(http, './assets/i18/', '.json');
@@ -81,6 +82,16 @@ export const createTranslateLoader = (http: HttpClient) => {
         MatInputModule,
         MatCardModule,
         MatSelectModule,
+        NotifierModule.withConfig({
+            position: {
+                horizontal: {
+                    position: 'middle'
+                }
+            },
+            behaviour: {
+                autoHide: 5000
+            }
+        }),
     ],
     exports: [
         MatFormFieldModule, 
