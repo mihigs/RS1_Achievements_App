@@ -22,6 +22,7 @@ using backend_api.Extensions;
 using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 using backend_api.SignalR;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 
 namespace backend_api
 {
@@ -79,11 +80,13 @@ namespace backend_api
             //Allow cors for port 4200
             services.AddCors(options =>
             {
-                options.AddPolicy("CorsPolicy", builder => builder
-                    .WithOrigins("http://localhost:4200")
-                    .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowCredentials());
+                options.AddPolicy(name: "_myAllowSpecificOrigins", policy =>
+                {
+                    policy.WithOrigins("http://localhost:4200")
+                       .AllowAnyHeader()
+                       .AllowAnyMethod()
+                       .AllowCredentials();
+                });
             });
 
             services.AddControllers()
@@ -168,30 +171,28 @@ namespace backend_api
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
-            app.UseCors(
-               options => options
-               .SetIsOriginAllowed(x => _ = true)
-               .AllowAnyMethod()
-               .AllowAnyHeader()
-               .AllowCredentials()
-           ); //This needs to set everything allowed
 
             app.UseRouting();
-
+            // global cors policy
+            app.UseCors("_myAllowSpecificOrigins");
             app.UseAuthentication();
             app.UseAuthorization();
 
+            //SignalR
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapHub<Notifier>("/notifier");
+                endpoints.MapControllerRoute(
+                   name: "default",
+                   pattern: "{controller}/{action=Index}/{id?}");
             });
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
-            });
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllerRoute(
+            //        name: "default",
+            //        pattern: "{controller}/{action=Index}/{id?}");
+            //});
         }
     }
 }
